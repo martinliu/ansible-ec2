@@ -1,0 +1,46 @@
+Architecting on AWS: Lab 2 - Creating Your First VPC - 4.5
+
+==================================================================================================================
+
+Using this command reference. 
+
+==================================================================================================================
+
+1. Locate the section you need. Each section in this file matches a section in the lab instructions.
+
+2. Replace items in brackets - [] - with appropriate values. For example, in this command you would replace the value - [JobFlowID] - (including the brackets) with the parameter indicated in the lab instructions: 
+
+elastic-mapreduce --list [JobFlowID]
+
+3. Do NOT enable the Word Wrap feature in Windows Notepad or the text editor you use to view this file.
+
+
+
+++++ Launch a Web server ++++
+
+
+==================================================================================================================
+
+Task 2.6: Create NAT instance
+
+==================================================================================================================
+
+2.6.6 Paste the following text into the User Data field
+
+#!/bin/sh
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects
+/sbin/iptables -t nat -A POSTROUTING -o eth0 -s 0.0.0.0/0 -j MASQUERADE
+/sbin/iptables-save > /etc/sysconfig/iptables
+mkdir -p /etc/sysctl.d/
+cat <<EOF > /etc/sysctl.d/nat.conf
+net.ipv4.ip_forward = 1
+net.ipv4.conf.eth0.send_redirects = 0
+EOF
+
+
+
+
+
+Â© 2015 Amazon Web Services, Inc. or its affiliates. All rights reserved.
+

@@ -1,0 +1,64 @@
+Architecting on AWS: Lab 3 - Working with EC2 - 4.5
+
+==================================================================================================================
+
+Using this command reference.
+
+==================================================================================================================
+
+1. Locate the section you need. Each section in this file matches a section in the lab instructions.
+
+2. Replace items in brackets - [] - with appropriate values. For example, in this command you would replace the value - [JobFlowID] - (including the brackets) with the parameter indicated in the lab instructions:
+
+elastic-mapreduce --list [JobFlowID]
+
+would become
+
+elastic-mapreduce --list abc123
+
+3. Do NOT enable the Word Wrap feature in Windows Notepad or the text editor you use to view this file.
+
+
+==================================================================================================================
+
+Configure the EC2 Instance
+
+==================================================================================================================
+
+
+At the prompt type:
+
+sudo yum -y install httpd php
+
+------
+
+At the prompt type:
+
+sudo chkconfig httpd on
+
+------
+
+At the prompt, type:
+
+wget https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-3-working-with-ec2/static/phpapp.zip
+
+------
+
+At the prompt, type:
+
+sudo unzip phpapp.zip -d /var/www/html/
+
+------
+
+At the prompt, type:
+
+sudo service httpd start
+
+
+------
+
+
+
+
+Copyright 2015 Amazon Web Services, Inc. or its affiliates. All rights reserved.
+
