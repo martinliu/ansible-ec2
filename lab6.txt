@@ -1,0 +1,74 @@
+Architecting on AWS: Creating a Batch Processing Cluster - 4.5
+
+This file contains the UserData content that you need to complete the Creating a Batch Processing Cluster lab.
+
+To use this file:
+
+1. Locate the section you need. Each section in this file matches a section in the lab instructions.
+
+2. Copy the data and follow the rest of the lab instructions.
+
+
+
+
+==================================================================================================================
+
+Task 6.2: Creating Two Amazon SQS Task Queues
+
+==================================================================================================================
+
+
+https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/20120728-DSC01265-L.jpg
+https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/20120728-DSC01267-L.jpg
+https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/20120728-DSC01292-L.jpg
+https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/20120728-DSC01315-L.jpg
+https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/20120728-DSC01337-L.jpg
+
+
+==================================================================================================================
+
+Task 6.4: Creating a Master Amazon EC2 Instance: User Data
+
+==================================================================================================================
+
+
+#!/bin/bash -ex
+#
+# Install ImageMagick, a Python library, and create a directory
+yum -y update
+yum install -y ImageMagick
+easy_install argparse
+mkdir /home/ec2-user/jobs
+#
+# Download and install the batch processing script
+# The following command must be on a single line:
+wget -O /home/ec2-user/image_processor.py https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/image_processor.py
+wget -O /home/ec2-user/MessageProducer.py https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/MessageProducer.py
+chmod 755 /home/ec2-user/image_processor.py
+#
+/home/ec2-user/image_processor.py &
+
+
+==================================================================================================================
+
+Task 6.8: Launching Worker Nodes
+
+==================================================================================================================
+
+
+#!/bin/bash -ex
+#
+# Install ImageMagick, a Python library, and create a directory
+yum -y update
+yum install -y ImageMagick
+easy_install argparse
+mkdir /home/ec2-user/jobs
+#
+# Download and install the batch processing script
+# The following command must be on a single line:
+wget -O /home/ec2-user/image_processor.py https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/image_processor.py
+wget -O /home/ec2-user/MessageProducer.py https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-6-batch-processing-application/static/MessageProducer.py
+chmod 755 /home/ec2-user/image_processor.py
+#
+/home/ec2-user/image_processor.py &
+

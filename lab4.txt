@@ -1,0 +1,17 @@
+==================================================================================================================
+
+Task 4.4: Define Launch Configuration 
+
+==================================================================================================================
+
+#!/bin/bash
+yum -y update
+yum -y install httpd-2.2.27 php-5.3.29
+chkconfig httpd on
+wget https://d2lrzjb0vjvpn5.cloudfront.net/architecting/v4.5/lab-4-working-with-autoscaling/static/phpapp.zip
+unzip phpapp.zip -d /var/www/html/
+service httpd start
+yum -y install stress
+sleep 90
+stress --cpu 8 --io 8 --vm 6 --hdd 8 -t 400
+
