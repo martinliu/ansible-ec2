@@ -4,3 +4,7 @@ srv1  ansible_ssh_host=52.196.122.117 ansible_ssh_private_key_file=~/test-tokyo.
 [ami-hosts]
 host1  ansible_ssh_host=52.196.115.33 ansible_ssh_private_key_file=~/test-tokyo.pem    ansible_ssh_user=ec2-user
 host2  ansible_ssh_host=52.68.118.147 ansible_ssh_private_key_file=~/test-tokyo.pem      ansible_ssh_user=ec2-user
+
+[RancherOS-hosts]
+ros1 ansible_ssh_host=5ec2-52-196-57-94.ap-northeast-1.compute.amazonaws.com ansible_ssh_private_key_file=~/test-tokyo.pem    ansible_ssh_user=root
+ros2 ansible_ssh_host=ec2-52-193-62-132.ap-northeast-1.compute.amazonaws.com ansible_ssh_private_key_file=~/test-tokyo.pem    ansible_ssh_user=root
