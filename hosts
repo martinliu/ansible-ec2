@@ -1,1 +1,6 @@
-ghost  ansible_ssh_host=52.76.39.34 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/Downloads/sin-awsfaq.pem
+[rancher-server]
+srv1  ansible_ssh_host=52.196.122.117 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/test-tokyo.pem
+
+[ami-hosts]
+host1  ansible_ssh_host=52.196.115.33 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/test-tokyo.pem
+host2  ansible_ssh_host=52.68.118.147 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/test-tokyo.pem
