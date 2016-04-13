@@ -15,4 +15,9 @@ aws ec2 start-instances --instance-ids i-7b4ee5e4
 `
 
 how to make this command work.
+
+````
+
 for i in $(i-5241eacd i-5541eaca i-784ee5e7 i-794ee5e6 i-7b4ee5e4); do aws ec2 start-instances --instance-ids $i; done
+
+```
