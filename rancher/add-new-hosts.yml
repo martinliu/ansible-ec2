@@ -1,0 +1,15 @@
+---
+- name: Add new hosts to rancher server
+  hosts: ami-hosts
+  sudo: True
+  tasks:
+    - name: System update
+      command: yum -y update
+    - name: Install docker
+      yum: name=docker  state=latest
+    - name: Enable and start docker service
+      service: name=docker enabled=yes state=started
+    - name: Add hosts to rancher server
+      command: docker run -d --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v0.11.0 http://52.196.122.117:8080/v1/scripts/632AC8FFD208C769EDEB:1460566800000:PcRv8AJ2Kg1xVoPuItgajWaqztI
+      register: result
+    - debug: var=result
