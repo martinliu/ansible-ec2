@@ -2,8 +2,8 @@
 
 ## aws cli
 
-`aws ec2 describe-instances --region ap-northeast-1 --filter Name=instance-state-name,Values=running --query 'Reservations[].Instances[].InstanceId' --output text | xargs aws ec2 stop-instances --region ap-northeast-1 --instance-ids
-`
+```aws ec2 describe-instances --region ap-northeast-1 --filter Name=instance-state-name,Values=running --query 'Reservations[].Instances[].InstanceId' --output text | xargs aws ec2 stop-instances --region ap-northeast-1 --instance-ids
+```
 
 # start all instances
 
