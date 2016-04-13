@@ -1,7 +1,7 @@
 ---
 - name: Add new hosts to rancher server
-  hosts: ami-hosts
-  sudo: True
+  hosts: RancherOS-hosts
+  sudo: False
   tasks:
     - name: System update
       command: yum -y update
