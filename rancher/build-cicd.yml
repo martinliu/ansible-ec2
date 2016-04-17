@@ -1,0 +1,17 @@
+---
+- name: Build a drone server
+  hosts: rancher-server
+  sudo: True
+  tasks:
+    - name: System update
+      command: yum -y update
+    - name: Enable epel repo
+      command: yum-config-manager --enable epel
+    - name: Install docker
+      yum: name=docker  state=latest
+    - name: Enable and start docker service
+      service: name=docker enabled=yes state=started
+    - name: Instll SQLite
+      yum: name=sqlite-devel state=latest
+      register: result
+    - debug: var=result

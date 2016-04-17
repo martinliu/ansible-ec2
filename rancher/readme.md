@@ -1,6 +1,6 @@
 # stop all instances
 
-## aws cli
+aws cli
 
 ```
 
@@ -16,6 +16,7 @@ aws ec2 start-instances --instance-ids i-794ee5e6
 aws ec2 start-instances --instance-ids i-5541eaca
 aws ec2 start-instances --instance-ids i-784ee5e7
 aws ec2 start-instances --instance-ids i-7b4ee5e4
+
 
 ```
 
